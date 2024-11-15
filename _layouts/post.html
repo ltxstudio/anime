@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <div class="container my-5">
+    <div class="post-content">
+      <h1>{{ page.title }}</h1>
+      <p class="text-muted">
+        <small>Posted on {{ page.date | date: "%B %d, %Y" }} | Category: 
+        <a href="/category/{{ page.category | downcase | replace: ' ', '-' }}/">{{ page.category }}</a></small>
+      </p>
+      <hr>
+
+      <!-- Post Content -->
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <!-- Social Sharing -->
+      <div class="social-share mt-4">
+        <p>Share this post:</p>
+        <a href="https://twitter.com/share?url={{ page.url | absolute_url }}" target="_blank" class="btn btn-primary">Share on Twitter</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="btn btn-primary">Share on Facebook</a>
+      </div>
+
+      <!-- Tags (if any) -->
+      {% if page.tags %}
+        <div class="tags mt-3">
+          <p><strong>Tags:</strong>
+            {% for tag in page.tags %}
+              <a href="/tags/{{ tag | downcase | replace: ' ', '-' }}/" class="badge badge-secondary">{{ tag }}</a>
+            {% endfor %}
+          </p>
+        </div>
+      {% endif %}
+
+      <!-- Related Posts -->
+      {% if site.related_posts %}
+        <hr>
+        <h3>Related Posts</h3>
+        <div class="row">
+          {% for related_post in site.related_posts %}
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="{{ related_post.image | default: '/assets/images/default-thumbnail.jpg' }}" class="card-img-top" alt="{{ related_post.title }}">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="{{ related_post.url }}">{{ related_post.title }}</a></h5>
+                  <p class="card-text">{{ related_post.excerpt | strip_html }}</p>
+                  <a href="{{ related_post.url }}" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Back to Home Button -->
+      <hr>
+      <a href="{{ '/' | relative_url }}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+
+  {% include footer.html %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
