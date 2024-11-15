@@ -1,7 +1,7 @@
 title: My Jekyll Blog
 description: A modern Jekyll blog with all the essential features.
-baseurl: ""
-url: "https://yourdomain.com"
+baseurl: "/anime"
+url: "https://ltxstudio.github.io"
 
 markdown: kramdown
 theme: "minima"  # You can choose another theme if you prefer
