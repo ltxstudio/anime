@@ -1,10 +1,26 @@
-title: "My Jekyll Blog"
-description: "A personal blog built with Jekyll and Bootstrap"
-url: "http://example.com"
+title: My Jekyll Blog
+description: A modern Jekyll blog with all the essential features.
 baseurl: ""
-author:
-  name: "Your Name"
-  email: "your.email@example.com"
+url: "https://yourdomain.com"
+
 markdown: kramdown
-theme: minima
-paginate: 5
+theme: "minima"  # You can choose another theme if you prefer
+
+plugins:
+  - jekyll-seo-tag   # SEO tag plugin for better search engine optimization
+  - jekyll-paginate  # Pagination plugin
+  - jekyll-sitemap   # Sitemap plugin
+  - jekyll-search    # For search functionality
+
+paginate: 5  # Number of posts per page
+paginate_path: "/page:num/"
+
+# Categories configuration (optional)
+categories:
+  - Technology
+  - Design
+  - Lifestyle
+
+# Disqus configuration for comments
+disqus:
+  shortname: "your-disqus-shortname"
