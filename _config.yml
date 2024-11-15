@@ -1,0 +1,10 @@
+title: "My Jekyll Blog"
+description: "A personal blog built with Jekyll and Bootstrap"
+url: "http://example.com"
+baseurl: ""
+author:
+  name: "Your Name"
+  email: "your.email@example.com"
+markdown: kramdown
+theme: minima
+paginate: 5
